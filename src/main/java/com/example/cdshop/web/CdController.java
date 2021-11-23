@@ -39,7 +39,7 @@ public class CdController {
 		return "addcd";
 	}
 	
-	@RequestMapping(value= "/modify{id}", method= RequestMethod.GET)
+	@RequestMapping(value= "/modify/{id}", method= RequestMethod.GET)
 	public String modifyCd(@PathVariable("id") Long cdId, Model model) {
 		System.out.println("Modifying...");
 		Optional<Cd> cd = cdrepository.findById(cdId);
