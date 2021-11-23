@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"
+xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity">
+<head>
+    <title>CD List</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<h1 th:inline="text">Hello [[${#httpServletRequest.remoteUser}]]!</h1>
+	<h1>CDs</h1>
+    <table>
+		<tr>
+		    <th>Album</th>
+		    <th>Band</th>
+		    <th>Year</th>
+		    <th>Price</th>
+		    <th>Genre</th>
+		</tr>  
+    	<tr th:each = "cd : ${cds}">
+    		<td th:text="${cd.album}"></td>
+    		<td th:text="${cd.band}"></td>
+    		<td th:text="${cd.year}"></td>
+    		<td th:text="${cd.price}"></td>
+    		<td th:text="${cd.genre.name}"></td>
+    		
+ 				<td sec:authorize="hasAuthority('ADMIN')"><a th:href="@{/delete/{id}(id=${cd.id})}">Delete</a></td>
+ 				<td><a th:href="@{/modify/{id}(id=${cd.id})}">Modify</a></td>    		
+    	</tr>
+    	
+    </table>
+    	<a th:href ="@{/addcd}">ADD CD</a>
+    	<form th:action="@{/logout}" method="post">
+            <input type="submit" value="Sign Out"/>
+        </form>
+    	
+</body>
+</html>

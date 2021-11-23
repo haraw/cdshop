@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Add CD</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<h1>Add book</h1>
+<div>
+  <form th:object="${cd}" th:action="@{save}" action="#" method="post">
+      <label for="album">Album</label>
+      <input type="text" id="album" th:field="*{album}" />
+      <label for="band">Band</label>
+      <input type="text" id="band" th:field="*{band}" />
+      <label for="year">Year</label>
+      <input type="text" th:field="*{year}" />
+      <label for="price">Price</label>
+      <input type="text" th:field="*{price}" />
+      <label for="catlist">Genre</label>
+        <select id="catlist" th:field="*{genre}" class="form-control">
+       	<option 
+       		th:each="genre: ${genres}"
+       		th:value="${genre.id}"
+       		th:text="${genre.name}">
+       	</option>
+      </select> 
+      
+      
+      
+      
+      <input type="submit" value="Save"></input>
+  </form>
+</div> 
+
+    	
+    	
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Modify CD</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<h1>Books</h1>
+    <div>
+    	<form th:object="${cd}" th:action="@{../save}" action="#" method="post">
+    	<label for="id"></label>
+    	<input type="hidden" id="id" th:field="*{id}" readonly="readonly" />
+    	<div style="clear: both; display: block; height: 10px"></div>
+    	<label for= "album">Album</label>
+    	<input type="text" id="author" th:field="*{album}" />
+    	<div style="clear: both; display: block; height: 10px"></div>
+    	<label for= "band">Band</label>
+    	<input type="text" id="title" th:field="*{band}" />
+    	<div style="clear: both; display: block; height: 10px"></div>
+    	<label for= "year">Year</label>
+    	<input type="text" id="year" th:field="*{year}" />
+    	<div style="clear: both; display: block; height: 10px"></div>
+    	<label for= "price">Price</label>
+    	<input type="text" id="price" th:field="*{price}" />
+    	<div style="clear: both; display: block; height: 10px"></div>
+    	<input type="submit" value="Save"></input>
+    	</form>
+    </div>    	
+</body>
+</html>
